@@ -30,6 +30,7 @@ namespace Practica4G420250318.AppWebMVC.Controllers
                 query = query.Where(s => s.Telefono.Contains(cliente.Telefono));
             if(topRegistro>0)
                 query=query.Take(topRegistro);
+            query = query.OrderByDescending(s => s.Id);
             return View(await query.ToListAsync());
         }
 
